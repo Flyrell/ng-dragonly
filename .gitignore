@@ -1,0 +1,5 @@
+/node_modules
+*.ngsummary.json
+*.metadata.json
+*.ngfactory.ts
+npm-debug.log

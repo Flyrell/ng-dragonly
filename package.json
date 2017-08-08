@@ -1,0 +1,50 @@
+{
+  "name": "ng-dragonly",
+  "version": "1.0.0",
+  "description": "Directive for creating the drag-only components in anuglar's projects",
+  "main": "ngdragonly.bundle.js",
+  "module": "ngdragonly.module.js",
+  "jsnext:main": "ngdragonly.module.js",
+  "types": "ngresizable.module.d.ts",
+  "scripts": {
+    "transpile": "./node_modules/.bin/ngc -p tsconfig.json",
+    "package": "./node_modules/.bin/rollup -c",
+    "minify": "./node_modules/.bin/uglifyjs dist/bundles/dragonly.umd.js --screw-ie8 --compress --mangle --comments --output dist/bundles/dragonly.umd.min.js",
+    "build": "npm run transpile && npm run package && npm run minify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Flyrell/ng-dragonly.git"
+  },
+  "keywords": [
+    "angular",
+    "angular2",
+    "anuglar4",
+    "drag",
+    "only",
+    "draggable",
+    "component",
+    "moving"
+  ],
+  "author": "Dawid Zbiński",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Flyrell/ng-dragonly/issues"
+  },
+  "homepage": "https://github.com/Flyrell/ng-dragonly#readme",
+  "devDependencies": {
+    "@angular/compiler": "^4.3.3",
+    "@angular/compiler-cli": "^4.3.3",
+    "@angular/core": "^4.3.3",
+    "rollup": "^0.45.2",
+    "rollup-plugin-commonjs": "^8.1.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "typescript": "^2.4.2",
+    "uglify-js": "^3.0.27"
+  },
+  "dependencies": {
+    "@angular/compiler-cli": "^4.3.3",
+    "@angular/platform-server": "^4.3.3"
+  }
+}

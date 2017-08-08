@@ -3,3 +3,4 @@
 *.metadata.json
 *.ngfactory.ts
 npm-debug.log
+/.idea

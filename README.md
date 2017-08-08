@@ -40,6 +40,8 @@ pass the id using same directive, like so:
 
 
 ### CHANGELOG:
+#### v1.0.1
+1. Added Usage section to README file
 #### v1.0.0
 1. Ability to drag the elements on your website
 2. Automatically saving the window's position in sessionStorage

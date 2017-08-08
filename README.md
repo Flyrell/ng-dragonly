@@ -1,6 +1,8 @@
 # Angular's Drag-only directive
-This is the latest Angular's package used for dynamically dragging the 
-components/elements in your web-based application.
+This is the latest Angular's package used for dynamically dragging/moving the 
+elements in your web-based application.
+
+Live demo is available [here](http://www.zbinski.eu/ng-dragonly)
 
 ### Installation
 
@@ -13,6 +15,7 @@ npm install --save-dev ng-dragonly
 ... or download `dragonly.directive.ts` from `src/` directory and put it into your project's `app/` directory.
 
 ### Usage
+######Before you start you should know that the package only works when the movable elements can be position using `top` and `left` css styles. 
 - Include `DragOnlyDirective` in your app.module.ts
 ```typescript
 import { DragOnlyDirective } from "ng-dragonly"

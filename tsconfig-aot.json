@@ -2,7 +2,6 @@
   "compilerOptions": {
     "target": "es5",
     "emitDecoratorMetadata": true,
-    "declaration": true,
     "stripInternal": true,
     "experimentalDecorators": true,
     "strictNullChecks": true,
@@ -12,7 +11,7 @@
     "baseUrl": ".",
     "outDir": "dist",
     "paths": {
-      "@angular/core": ["./node_modules/@angular/core"]
+      "@angular/core": ["node_modules/@angular/core"]
     },
     "sourceMap": true,
     "inlineSources": true,
@@ -23,15 +22,14 @@
     ],
     "suppressImplicitAnyIndexErrors": true,
     "typeRoots": [
-      "./node_modules/@types/"
+      "node_modules/@types/"
     ]
   },
   "files": [
-    "./index.ts"
+    "index.ts"
   ],
   "angularCompilerOptions": {
     "genDir": "dist",
-    "skipMetadataEmit": true,
-    "strictMetadataEmit": true
+    "skipMetadataEmit": true
   }
 }

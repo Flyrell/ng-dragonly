@@ -101,20 +101,21 @@ var DragOnlyDirective = (function () {
     /**
      * reads the position of the element from sessionStorage
      *
-     * @returns {EventPosition|null}
+     * @returns {EventPosition}
      */
     DragOnlyDirective.prototype.read = function () {
         try {
             var data = sessionStorage.getItem(this.sessionStorageKey);
             if (!data)
-                return null;
+                return false;
             var parsedData = JSON.parse(data);
-            return new EventPosition(parsedData.x, parsedData.y);
+            if (parsedData && parsedData.x && parsedData.y)
+                return new EventPosition(parsedData.x, parsedData.y);
         }
         catch (e) {
             console.log("\n            Your browser does not support sessionStorage and will \n            not store the position of the element after it's closed.\n            Error message: " + e.message);
         }
-        return null;
+        return false;
     };
     /**
      * updates element's top and left positions in pixels

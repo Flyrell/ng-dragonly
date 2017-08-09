@@ -7,7 +7,7 @@
 
 
 import * as i0 from '@angular/core';
-import * as i1 from '../../src/dragonly.module';
+import * as i1 from './dragonly.module';
 export const DragOnlyModuleNgFactory:i0.NgModuleFactory<i1.DragOnlyModule> = i0.ɵcmf(i1.DragOnlyModule,
     ([] as any[]),(_l:any) => {
       return i0.ɵmod([i0.ɵmpd(512,i0.ComponentFactoryResolver,i0.ɵCodegenComponentFactoryResolver,

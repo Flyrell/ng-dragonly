@@ -1,9 +1,11 @@
 {
   "name": "ng-dragonly",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Drag-only directive for making components/elements draggable without dropping them - using dyunamic top/left positioning",
-  "main": "bundles/amazing.umd.js",
+  "main": "bundles/dragonly.umd.js",
+  "jsnext:main": "bundles/dragonly.umd.js",
   "module": "index.js",
+  "typings": "index.d.ts",
   "keywords": [
     "angular",
     "angular2",

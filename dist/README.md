@@ -47,7 +47,7 @@ or
 
 
 ### CHANGELOG:
-#### v1.2.0
+#### v1.2.0 - v1.2.1
 1. Made breaking changes to compilation process and typings configuration
 #### v1.1.0
 1. Cleared `if` statement when reading from sessionStorage

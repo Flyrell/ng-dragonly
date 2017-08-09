@@ -1,34 +1,37 @@
-{
-  "compilerOptions": {
-    "target": "es5",
-    "emitDecoratorMetadata": true,
-    "stripInternal": true,
-    "experimentalDecorators": true,
-    "strictNullChecks": true,
-    "noImplicitAny": true,
-    "module": "es2015",
-    "moduleResolution": "node",
-    "paths": {
-      "@angular/core": ["node_modules/@angular/core"]
-    },
-    "outDir": "dist",
-    "sourceMap": true,
-    "inlineSources": true,
-    "skipLibCheck": true,
-    "lib": [
-      "es2015",
-      "dom"
-    ],
-    "suppressImplicitAnyIndexErrors": true,
-    "typeRoots": [
-      "node_modules/@types/"
-    ]
-  },
-  "files": [
-    "index.ts"
-  ],
-  "angularCompilerOptions": {
-    "genDir": "dist",
-    "skipMetadataEmit": true
-  }
-}
+    {
+      "compilerOptions": {
+        "lib": [
+          "es2015",
+          "dom"
+        ],
+        "rootDir": ".",
+        "baseUrl": ".",
+        "target": "es5",
+        "sourceMap": true,
+        "outDir": "./dist",
+        "module": "es2015",
+        "declaration": true,
+        "skipLibCheck": true,
+        "inlineSources": true,
+        "stripInternal": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "typeRoots": [
+          "./node_modules/@types/"
+        ],
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "paths": {
+          "@angular/core": ["node_modules/@angular/core"]
+        }
+      },
+      "files": [
+        "index.ts"
+      ],
+      "angularCompilerOptions": {
+        "skipMetadataEmit": true,
+        "strictMetadataEmit": true
+      }
+    }

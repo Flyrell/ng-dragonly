@@ -128,21 +128,22 @@ export class DragOnlyDirective implements OnInit {
     /**
      * reads the position of the element from sessionStorage
      *
-     * @returns {EventPosition|null}
+     * @returns {EventPosition}
      */
-    read(): EventPosition|null {
+    read(): EventPosition|boolean {
         try {
             const data = sessionStorage.getItem(this.sessionStorageKey);
-            if (!data) return null;
-            const parsedData = JSON.parse(data) as EventPosition;
-            return new EventPosition(parsedData.x, parsedData.y);
+            if (!data) return false;
+            const parsedData = JSON.parse(data);
+            if (parsedData && parsedData.x && parsedData.y)
+                return new EventPosition(parsedData.x, parsedData.y);
         } catch (e) {
             console.log(`
             Your browser does not support sessionStorage and will 
             not store the position of the element after it's closed.
             Error message: ` + e.message);
         }
-        return null;
+        return false;
     }
 
     /**

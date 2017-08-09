@@ -30,7 +30,7 @@ export class DragOnlyDirective implements OnInit {
      *
      * @type {string}
      */
-    private sessionStorageKey: string = "dragOnlyElementPosition";
+    private sessionStorageKey: string;
 
     /**
      * dragOnly identifier - useful when there are more
@@ -58,9 +58,9 @@ export class DragOnlyDirective implements OnInit {
      */
     ngOnInit(): void {
         this.handlersToDestroy    = [];
-        this.sessionStorageKey    += this.dragOnly;
+        this.sessionStorageKey    = 'dragOnlyElementPosition' + this.dragOnly;
         this.elementPosition      = this.calculateInitialPosition();
-        this.renderer.listen(this.elementRef.nativeElement, "mousedown", (ev) => this.init(ev));
+        this.renderer.listen(this.elementRef.nativeElement, 'mousedown', (ev) => this.init(ev));
         this.update();
     }
 
@@ -78,9 +78,9 @@ export class DragOnlyDirective implements OnInit {
     init(event: MouseEvent): void {
         this.mousePosition = new EventPosition(event.clientX, event.clientY);
         this.handlersToDestroy    = [
-            this.renderer.listen("document", "mousemove", (ev: MouseEvent) => this.calculate(ev)),
-            this.renderer.listen("document", "mouseup", (ev: MouseEvent) => this.removeHandlers()),
-            this.renderer.listen("document", "contextmenu", (ev: MouseEvent) => this.removeHandlers())
+            this.renderer.listen('document', 'mousemove', (ev: MouseEvent) => this.calculate(ev)),
+            this.renderer.listen('document', 'mouseup', (ev: MouseEvent) => this.removeHandlers()),
+            this.renderer.listen('document', 'contextmenu', (ev: MouseEvent) => this.removeHandlers())
         ];
     }
 
@@ -92,7 +92,7 @@ export class DragOnlyDirective implements OnInit {
      * @param {MouseEvent} event
      */
     calculate(event: MouseEvent): void {
-        let moveVector             = this.mousePosition.diff(new EventPosition(event.clientX, event.clientY));
+        const moveVector           = this.mousePosition.diff(new EventPosition(event.clientX, event.clientY));
         this.mousePosition         = this.mousePosition.add(moveVector);
         this.elementPosition       = this.elementPosition.add(moveVector);
         this.update();
@@ -105,7 +105,7 @@ export class DragOnlyDirective implements OnInit {
      * refreshes.
      */
     removeHandlers(): void {
-        for (let handler of this.handlersToDestroy) {
+        for (const handler of this.handlersToDestroy) {
             if (typeof handler === 'function') handler();
         }
         this.store();
@@ -132,16 +132,17 @@ export class DragOnlyDirective implements OnInit {
      */
     read(): EventPosition|null {
         try {
-            let data = sessionStorage.getItem(this.sessionStorageKey);
+            const data = sessionStorage.getItem(this.sessionStorageKey);
             if (!data) return null;
-            return JSON.parse(data) as EventPosition;
+            const parsedData = JSON.parse(data) as EventPosition;
+            return new EventPosition(parsedData.x, parsedData.y);
         } catch (e) {
             console.log(`
             Your browser does not support sessionStorage and will 
             not store the position of the element after it's closed.
             Error message: ` + e.message);
-            return null;
         }
+        return null;
     }
 
     /**
@@ -149,8 +150,8 @@ export class DragOnlyDirective implements OnInit {
      * based on the current position set by handlers.
      */
     update(): void {
-        this.renderer.setStyle(this.elementRef.nativeElement, "top", this.elementPosition.y + "px");
-        this.renderer.setStyle(this.elementRef.nativeElement, "left", this.elementPosition.x + "px");
+        this.renderer.setStyle(this.elementRef.nativeElement, 'top', this.elementPosition.y + 'px');
+        this.renderer.setStyle(this.elementRef.nativeElement, 'left', this.elementPosition.x + 'px');
     }
 
     /**
@@ -161,7 +162,7 @@ export class DragOnlyDirective implements OnInit {
      * @returns {EventPosition}
      */
     calculateInitialPosition(): EventPosition {
-        let positionBefore = this.read();
+        const positionBefore = this.read();
         if (positionBefore instanceof EventPosition) return positionBefore;
         return new EventPosition((window.innerWidth / 2), window.innerHeight / 2);
     }

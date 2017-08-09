@@ -4,6 +4,15 @@
 	(factory((global.ng = global.ng || {}, global.ng.dragonly = {}),global.ng.core));
 }(this, (function (exports,_angular_core) { 'use strict';
 
+var __decorate$1 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 var DragOnlyDirective = (function () {
     /**
      * constructs the DraggableDirective. Injects the
@@ -16,12 +25,6 @@ var DragOnlyDirective = (function () {
     function DragOnlyDirective(elementRef, renderer) {
         this.elementRef = elementRef;
         this.renderer = renderer;
-        /**
-         * sessionStorage key for element's position saving
-         *
-         * @type {string}
-         */
-        this.sessionStorageKey = "dragOnlyElementPosition";
     }
     /**
      * initializes component's variables with default values
@@ -32,9 +35,9 @@ var DragOnlyDirective = (function () {
     DragOnlyDirective.prototype.ngOnInit = function () {
         var _this = this;
         this.handlersToDestroy = [];
-        this.sessionStorageKey += this.dragOnly;
+        this.sessionStorageKey = 'dragOnlyElementPosition' + this.dragOnly;
         this.elementPosition = this.calculateInitialPosition();
-        this.renderer.listen(this.elementRef.nativeElement, "mousedown", function (ev) { return _this.init(ev); });
+        this.renderer.listen(this.elementRef.nativeElement, 'mousedown', function (ev) { return _this.init(ev); });
         this.update();
     };
     /**
@@ -52,8 +55,9 @@ var DragOnlyDirective = (function () {
         var _this = this;
         this.mousePosition = new EventPosition(event.clientX, event.clientY);
         this.handlersToDestroy = [
-            this.renderer.listen("document", "mousemove", function (ev) { return _this.calculate(ev); }),
-            this.renderer.listen("document", "mouseup", function (ev) { return _this.removeHandlers(); })
+            this.renderer.listen('document', 'mousemove', function (ev) { return _this.calculate(ev); }),
+            this.renderer.listen('document', 'mouseup', function (ev) { return _this.removeHandlers(); }),
+            this.renderer.listen('document', 'contextmenu', function (ev) { return _this.removeHandlers(); })
         ];
     };
     /**
@@ -105,22 +109,20 @@ var DragOnlyDirective = (function () {
             if (!data)
                 return null;
             var parsedData = JSON.parse(data);
-            if (parsedData && parsedData.x && parsedData.y)
-                return new EventPosition(parsedData.x, parsedData.y);
-            return null;
+            return new EventPosition(parsedData.x, parsedData.y);
         }
         catch (e) {
             console.log("\n            Your browser does not support sessionStorage and will \n            not store the position of the element after it's closed.\n            Error message: " + e.message);
-            return null;
         }
+        return null;
     };
     /**
      * updates element's top and left positions in pixels
      * based on the current position set by handlers.
      */
     DragOnlyDirective.prototype.update = function () {
-        this.renderer.setStyle(this.elementRef.nativeElement, "top", this.elementPosition.y + "px");
-        this.renderer.setStyle(this.elementRef.nativeElement, "left", this.elementPosition.x + "px");
+        this.renderer.setStyle(this.elementRef.nativeElement, 'top', this.elementPosition.y + 'px');
+        this.renderer.setStyle(this.elementRef.nativeElement, 'left', this.elementPosition.x + 'px');
     };
     /**
      * returns very initial position of the element based
@@ -135,17 +137,14 @@ var DragOnlyDirective = (function () {
             return positionBefore;
         return new EventPosition((window.innerWidth / 2), window.innerHeight / 2);
     };
-    DragOnlyDirective.decorators = [
-        { type: _angular_core.Directive, args: [{ selector: '[dragOnly]' },] },
-    ];
-    /** @nocollapse */
-    DragOnlyDirective.ctorParameters = function () { return [
-        { type: _angular_core.ElementRef, },
-        { type: _angular_core.Renderer2, },
-    ]; };
-    DragOnlyDirective.propDecorators = {
-        'dragOnly': [{ type: _angular_core.Input },],
-    };
+    __decorate$1([
+        _angular_core.Input(),
+        __metadata("design:type", Object)
+    ], DragOnlyDirective.prototype, "dragOnly", void 0);
+    DragOnlyDirective = __decorate$1([
+        _angular_core.Directive({ selector: '[dragOnly]' }),
+        __metadata("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
+    ], DragOnlyDirective);
     return DragOnlyDirective;
 }());
 /**
@@ -190,17 +189,21 @@ var EventPosition = (function () {
     return EventPosition;
 }());
 
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 var DragOnlyModule = (function () {
     function DragOnlyModule() {
     }
-    DragOnlyModule.decorators = [
-        { type: _angular_core.NgModule, args: [{
-                    declarations: [DragOnlyDirective],
-                    exports: [DragOnlyDirective]
-                },] },
-    ];
-    /** @nocollapse */
-    DragOnlyModule.ctorParameters = function () { return []; };
+    DragOnlyModule = __decorate([
+        _angular_core.NgModule({
+            declarations: [DragOnlyDirective],
+            exports: [DragOnlyDirective]
+        })
+    ], DragOnlyModule);
     return DragOnlyModule;
 }());
 

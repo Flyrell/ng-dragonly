@@ -1,3 +1,3 @@
-export { DragOnlyModule } from "./lib/dragonly.module";
-export { DragOnlyDirective, EventPosition } from "./lib/dragonly.directive";
+export { DragOnlyModule } from "./src/dragonly.module";
+export { DragOnlyDirective, EventPosition } from "./src/dragonly.directive";
 //# sourceMappingURL=index.js.map

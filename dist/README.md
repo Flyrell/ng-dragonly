@@ -47,6 +47,8 @@ or
 
 
 ### CHANGELOG:
+#### v1.2.0
+1. Made breaking changes to compilation process and typings configuration
 #### v1.1.0
 1. Cleared `if` statement when reading from sessionStorage
 2. Should now clear all event listeners after clicking the right mouse button

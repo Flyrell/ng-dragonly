@@ -7,7 +7,7 @@
   "jsnext:main": "ngdragonly.module.js",
   "types": "ngresizable.module.d.ts",
   "scripts": {
-    "transpile": "./node_modules/.bin/ngc -p tsconfig.json",
+    "transpile": "./node_modules/.bin/ngc -p tsconfig-aot.json",
     "package": "./node_modules/.bin/rollup -c",
     "minify": "./node_modules/.bin/uglifyjs dist/bundles/dragonly.umd.js --screw-ie8 --compress --mangle --comments --output dist/bundles/dragonly.umd.min.js",
     "build": "npm run transpile && npm run package && npm run minify",
@@ -41,7 +41,8 @@
     "rollup-plugin-commonjs": "^8.1.0",
     "rollup-plugin-node-resolve": "^3.0.0",
     "typescript": "^2.4.2",
-    "uglify-js": "^3.0.27"
+    "uglify-js": "^3.0.27",
+    "uglifyjs": "^2.4.11"
   },
   "dependencies": {
     "@angular/compiler-cli": "^4.3.3",

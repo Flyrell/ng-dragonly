@@ -2,7 +2,7 @@
 This is the latest Angular's package used for dynamically dragging/moving the 
 elements in your web-based application.
 
-Live demo is available [here](http://www.zbinski.eu/ng-dragonly)
+Live demo is available [here](http://github.com/Flyrell/ng-dragonly)
 
 ### Installation
 
@@ -15,7 +15,7 @@ npm install --save-dev ng-dragonly
 ... or download `dragonly.directive.ts` from `src/` directory and put it into your project's `app/` directory.
 
 ### Usage
-######Before you start you should know that the package only works when the movable elements can be position using `top` and `left` css styles. 
+Before you start you should know that the package only works when the movable elements can be position using `top` and `left` css styles.
 - Include `DragOnlyModule` in your app.module.ts
 ```typescript
 import { DragOnlyModule } from "ng-dragonly"
@@ -40,13 +40,20 @@ pass the id using same directive, like so:
 ```html
 <div ... dragOnly="id_of_movable_element"></div>
 ```
+or
+```html
+<div ... [dragOnly]="'id_of_movable_element'"></div>
+```
 
 
 ### CHANGELOG:
+#### v1.1.0
+1. Cleared `if` statement when reading from sessionStorage
+2. Should now clear all event listeners after clicking the right mouse button
 #### v1.0.2
 1. Changed importing from directive to module so that no further issues with 
 multiple directive's declarations in modules will be presented. The other reason
-for that is to prepare the package for future changes.
+for that is to prepare the package for future changes
 #### v1.0.1
 1. Added Usage section to README file
 #### v1.0.0

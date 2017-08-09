@@ -9,10 +9,10 @@
     "noImplicitAny": true,
     "module": "es2015",
     "moduleResolution": "node",
+    "baseUrl": ".",
     "paths": {
-      "@angular/core": ["node_modules/@angular/core"]
+      "@angular/core": ["./node_modules/@angular/core"]
     },
-    "outDir": "dist",
     "sourceMap": true,
     "inlineSources": true,
     "skipLibCheck": true,
@@ -22,11 +22,11 @@
     ],
     "suppressImplicitAnyIndexErrors": true,
     "typeRoots": [
-      "node_modules/@types/"
+      "./node_modules/@types/"
     ]
   },
   "files": [
-    "index.ts"
+    "./index.ts"
   ],
   "angularCompilerOptions": {
     "genDir": "dist",

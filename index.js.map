@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,cAAc,EAAE,MAAM,uBAAuB,CAAC;AACvD,OAAO,EAAE,iBAAiB,EAAE,aAAa,EAAE,MAAM,0BAA0B,CAAC","file":"index.js","sourceRoot":"","sourcesContent":["export { DragOnlyModule } from \"./src/dragonly.module\";\nexport { DragOnlyDirective, EventPosition } from \"./src/dragonly.directive\";"]}

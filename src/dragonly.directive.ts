@@ -79,7 +79,8 @@ export class DragOnlyDirective implements OnInit {
         this.mousePosition = new EventPosition(event.clientX, event.clientY);
         this.handlersToDestroy    = [
             this.renderer.listen("document", "mousemove", (ev: MouseEvent) => this.calculate(ev)),
-            this.renderer.listen("document", "mouseup", (ev: MouseEvent) => this.removeHandlers())
+            this.renderer.listen("document", "mouseup", (ev: MouseEvent) => this.removeHandlers()),
+            this.renderer.listen("document", "contextmenu", (ev: MouseEvent) => this.removeHandlers())
         ];
     }
 
@@ -133,10 +134,7 @@ export class DragOnlyDirective implements OnInit {
         try {
             let data = sessionStorage.getItem(this.sessionStorageKey);
             if (!data) return null;
-            let parsedData  = JSON.parse(data);
-            if (parsedData && parsedData.x && parsedData.y)
-                return new EventPosition(parsedData.x, parsedData.y);
-            return null;
+            return JSON.parse(data) as EventPosition;
         } catch (e) {
             console.log(`
             Your browser does not support sessionStorage and will 

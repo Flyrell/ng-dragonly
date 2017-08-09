@@ -1,6 +1,6 @@
-/node_modules/
-*.ngsummary.json
+node_modules/
 *.metadata.json
-*.ngfactory.ts
+*.ngsummary.json
 npm-debug.log
-/.idea/
+.idea/
+dist/node_modules/

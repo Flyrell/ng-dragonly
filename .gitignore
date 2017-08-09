@@ -1,6 +1,7 @@
-node_modules/
+/node_modules/
 *.metadata.json
 *.ngsummary.json
 npm-debug.log
-.idea/
-dist/node_modules/
+/.idea/
+/dist/node_modules/
+/to_copy

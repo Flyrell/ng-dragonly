@@ -8,8 +8,8 @@
   "types": "dragonly.module.d.ts",
   "scripts": {
     "transpile": "node_modules/.bin/ngc -p tsconfig-aot.json",
-    "package": "rollup -c",
-    "minify": "uglifyjs dist/bundles/dragonly.umd.js --screw-ie8 --compress --mangle --comments --output dist/bundles/dragonly.umd.min.js",
+    "package": "node_modules/.bin/rollup -c",
+    "minify": "node_modules/.bin/uglifyjs dist/bundles/dragonly.umd.js --screw-ie8 --compress --mangle --comments --output dist/bundles/dragonly.umd.min.js",
     "build": "npm run transpile && npm run package && npm run minify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

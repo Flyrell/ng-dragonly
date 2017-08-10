@@ -20,7 +20,7 @@
           "./node_modules/@types/"
         ],
         "moduleResolution": "node",
-        "emitDecoratorMetadata": true,
+        "emitDecoratorMetadata": false,
         "experimentalDecorators": true,
         "suppressImplicitAnyIndexErrors": true,
         "paths": {
@@ -31,7 +31,8 @@
         "index.ts"
       ],
       "angularCompilerOptions": {
-        "skipMetadataEmit": true,
+        "skipTemplateCodegen": true,
+        "skipMetadataEmit": false,
         "strictMetadataEmit": true
       }
     }

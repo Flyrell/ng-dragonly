@@ -134,9 +134,8 @@ export class DragOnlyDirective implements OnInit {
         try {
             const data = sessionStorage.getItem(this.sessionStorageKey);
             if (!data) return false;
-            const parsedData = JSON.parse(data);
-            if (parsedData && parsedData.x && parsedData.y)
-                return new EventPosition(parsedData.x, parsedData.y);
+            const parsedData = JSON.parse(data) as EventPosition;
+            return new EventPosition(parsedData.x, parsedData.y);
         } catch (e) {
             console.log(`
             Your browser does not support sessionStorage and will 

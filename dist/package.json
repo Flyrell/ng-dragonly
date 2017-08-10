@@ -1,6 +1,6 @@
 {
   "name": "ng-dragonly",
-  "version": "1.2.1",
+  "version": "1.2.5",
   "description": "Drag-only directive for making components/elements draggable without dropping them - using dyunamic top/left positioning",
   "main": "bundles/dragonly.umd.js",
   "jsnext:main": "bundles/dragonly.umd.js",
@@ -26,6 +26,6 @@
     "url": "https://github.com/Flyrell/ng-dragonly/issues"
   },
   "peerDependencies": {
-    "@angular/core": "^2.4.0 || ^4.0.0"
+    "@angular/core": ">=2.4.3"
   }
 }

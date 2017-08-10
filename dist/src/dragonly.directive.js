@@ -1,12 +1,3 @@
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 var DragOnlyDirective = (function () {
     /**
@@ -104,8 +95,7 @@ var DragOnlyDirective = (function () {
             if (!data)
                 return false;
             var parsedData = JSON.parse(data);
-            if (parsedData && parsedData.x && parsedData.y)
-                return new EventPosition(parsedData.x, parsedData.y);
+            return new EventPosition(parsedData.x, parsedData.y);
         }
         catch (e) {
             console.log("\n            Your browser does not support sessionStorage and will \n            not store the position of the element after it's closed.\n            Error message: " + e.message);
@@ -133,14 +123,17 @@ var DragOnlyDirective = (function () {
             return positionBefore;
         return new EventPosition((window.innerWidth / 2), window.innerHeight / 2);
     };
-    __decorate([
-        Input(),
-        __metadata("design:type", Object)
-    ], DragOnlyDirective.prototype, "dragOnly", void 0);
-    DragOnlyDirective = __decorate([
-        Directive({ selector: '[dragOnly]' }),
-        __metadata("design:paramtypes", [ElementRef, Renderer2])
-    ], DragOnlyDirective);
+    DragOnlyDirective.decorators = [
+        { type: Directive, args: [{ selector: '[dragOnly]' },] },
+    ];
+    /** @nocollapse */
+    DragOnlyDirective.ctorParameters = function () { return [
+        { type: ElementRef, },
+        { type: Renderer2, },
+    ]; };
+    DragOnlyDirective.propDecorators = {
+        'dragOnly': [{ type: Input },],
+    };
     return DragOnlyDirective;
 }());
 export { DragOnlyDirective };

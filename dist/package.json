@@ -1,6 +1,6 @@
 {
   "name": "ng-dragonly",
-  "version": "1.2.5",
+  "version": "1.3.0",
   "description": "Drag-only directive for making components/elements draggable without dropping them - using dyunamic top/left positioning",
   "main": "bundles/dragonly.umd.js",
   "jsnext:main": "bundles/dragonly.umd.js",
@@ -8,12 +8,13 @@
   "typings": "index.d.ts",
   "keywords": [
     "angular",
-    "angular2",
-    "angular 2",
     "angular4",
-    "angular 4",
-    "drag only angular",
-    "draggable"
+    "elements moving",
+    "movable",
+    "draggable",
+    "drag only",
+    "drag without dropping",
+    "moving"
   ],
   "author": "Dawid Zbiński",
   "license": "MIT",

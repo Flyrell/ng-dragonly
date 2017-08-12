@@ -28,7 +28,7 @@
     "moving"
   ],
   "author": "Dawid Zbiński",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Flyrell/ng-dragonly/issues"
   },
@@ -36,7 +36,7 @@
   "devDependencies": {
     "@angular/compiler": "^4.3.3",
     "@angular/compiler-cli": "^4.3.3",
-    "@angular/core": "^4.3.3",
+    "@angular/core": "^4.3.4",
     "ngc": "^1.0.0",
     "rollup": "^0.45.2",
     "rollup-plugin-commonjs": "^8.1.0",
@@ -46,7 +46,9 @@
     "uglifyjs": "^2.4.11"
   },
   "dependencies": {
-    "@angular/compiler-cli": "^4.3.3",
-    "@angular/platform-server": "^4.3.3"
+    "@angular/compiler": "^4.3.4",
+    "@angular/compiler-cli": "^4.3.4",
+    "@angular/core": "^4.3.4",
+    "@angular/platform-server": "^4.3.4"
   }
 }

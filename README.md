@@ -2,8 +2,6 @@
 This is the latest Angular's package used for dynamically dragging/moving the 
 elements in your web-based application.
 
-Live demo is available [here](http://github.com/Flyrell/ng-dragonly-demo)
-
 ### Installation
 
 Installing using npm:
